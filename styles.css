@@ -1,0 +1,434 @@
+/* --------------------
+   CSS Custom Properties (Variables)
+-------------------- */
+:root {
+  /* Light theme colors */
+  --bg-primary: #fdfdfd;
+  --bg-secondary: #fff;
+  --bg-hero: linear-gradient(135deg, #e0f7fa, #e1f5fe);
+  --text-primary: #222;
+  --text-secondary: #333;
+  --text-muted: #666;
+  --accent-color: #0077cc;
+  --accent-hover: #005fa3;
+  --border-color: #eee;
+  --shadow-light: rgba(0,0,0,0.1);
+  --shadow-medium: rgba(0,0,0,0.15);
+  --chip-bg: #e0e7ff;
+  --chip-hover: #c7d2fe;
+  --footer-bg: #111;
+  --footer-text: #fff;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-hero: linear-gradient(135deg, #1e3a8a, #1e40af);
+  --text-primary: #e5e5e5;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+  --border-color: #374151;
+  --shadow-light: rgba(0,0,0,0.3);
+  --shadow-medium: rgba(0,0,0,0.4);
+  --chip-bg: #374151;
+  --chip-hover: #4b5563;
+  --footer-bg: #000;
+  --footer-text: #e5e5e5;
+}
+
+/* --------------------
+   Base Reset & Typography
+-------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* --------------------
+     Utility
+  -------------------- */
+  .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  /* --------------------
+     Skip Link
+  -------------------- */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #0077cc;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    z-index: 100;
+    transition: top 0.3s ease;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+  
+  /* --------------------
+     Header & Navigation
+  -------------------- */
+  .site-header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+  
+  .nav {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+  }
+  
+  .nav a:hover::after {
+    width: 100%;
+  }
+
+  /* --------------------
+     Theme Toggle Button
+  -------------------- */
+  .theme-toggle {
+    background: none;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--accent-color);
+  }
+
+  .theme-toggle:hover {
+    background: var(--accent-color);
+    color: var(--bg-secondary);
+    transform: scale(1.1);
+  }
+
+  .theme-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .theme-toggle:hover .theme-icon {
+    transform: rotate(20deg);
+  }
+
+  /* --------------------
+     Section Header with Edit Button
+  -------------------- */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .edit-btn {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+
+  .edit-btn:hover {
+    background: var(--accent-hover);
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+
+  .edit-btn:active {
+    transform: translateY(0);
+  }
+
+  .edit-icon {
+    font-size: 1rem;
+  }
+
+  /* --------------------
+     Editable Content
+  -------------------- */
+  .editable-content {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .editable-content[contenteditable="true"] {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 8px;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    box-shadow: 0 0 0 1px var(--border-color);
+    min-height: 120px;
+  }
+
+  .editable-content[contenteditable="true"]:focus {
+    outline: 2px solid var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .editable-content[contenteditable="true"] p {
+    margin-bottom: 1rem;
+  }
+
+  .editable-content[contenteditable="true"] p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Edit mode indicator */
+  .editable-content[contenteditable="true"]::before {
+    content: "✏️ Editing mode - Click outside to save";
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    opacity: 0.8;
+  }
+
+  /* Save indicator */
+  .save-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .save-indicator.show {
+    transform: translateX(0);
+  }
+  
+  /* --------------------
+     Hero Section
+  -------------------- */
+  .hero {
+    background: var(--bg-hero);
+    padding: 3rem 0;
+    transition: background 0.3s ease;
+  }
+  
+  .hero-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .hero .lead {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* --------------------
+     Buttons
+  -------------------- */
+  .btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+  }
+  .btn-outline:hover {
+    background: var(--accent-color);
+    color: #fff;
+  }
+  
+  /* --------------------
+     Cards (Projects)
+  -------------------- */
+  .cards {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .card {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px var(--shadow-medium);
+  }
+  
+  .card img {
+    width: 100%;
+    display: block;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-body h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* --------------------
+     Skills
+  -------------------- */
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .chips li {
+    background: var(--chip-bg);
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+  }
+  
+  .chips li:hover {
+    background: var(--chip-hover);
+  }
+  
+  /* --------------------
+     Footer
+  -------------------- */
+  .site-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* --------------------
+     Responsive Layouts
+  -------------------- */
+  
+  /* Tablets and up */
+  @media (min-width: 600px) {
+    .hero-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Desktops and up */
+  @media (min-width: 900px) {
+    .site-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  
+  
