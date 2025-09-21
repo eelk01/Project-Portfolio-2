@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Klee John Quimado – Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">Klee John Quimado</h1>
+            <nav aria-label="Primary">
+                <ul class="nav">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                            <span class="theme-icon">🌙</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="content">
+        <section class="hero" aria-labelledby="intro-title">
+            <div class="container">
+                <div class="hero-grid">
+                    <div>
+                        <h2 id="intro-title">Hi, I’m Klee John Quimado 👋</h2>
+                        <p class="lead">I build simple, human-friendly web experiences.</p>
+                        <a class="btn" href="#projects">See my work</a>
+                    </div>
+                    <figure class="profile">
+                        <img src="https://cdn.discordapp.com/attachments/1306469861584801833/1419303340734414928/image.png?ex=68d144bd&is=68cff33d&hm=c5e5d5c165af96636e9fedb4b4a41140c63957e2945b51e85fe45305cb871d6b&" alt="Picture of Klee John Quimado" />
+                        <figcaption>Based in Butuan City, PH</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="section" aria-labelledby="about-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="about-title">About</h2>
+                    <button id="edit-about" class="edit-btn" aria-label="Edit About section">
+                        <span class="edit-icon">✏️</span>
+                        <span class="edit-text">Edit</span>
+                    </button>
+                </div>
+                <div id="about-content" class="editable-content">
+                    <p>
+                        I am a beginner web developer focused on clean, accessible interfaces. I enjoy
+                        CSS layout, semantic HTML, and learning by building.
+                    </p>
+                    <p>
+                        I'm currently exploring <strong>HTML/CSS</strong> fundamentals and crafting small projects.
+                        You can reach me on <a href="#contact">email</a> or see my code on
+                        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="section" aria-labelledby="projects-title">
+            <div class="container">
+                <h2 id="projects-title">Projects</h2>
+                <div class="cards">
+                    <article class="card">
+                        <img src="https://cdn.discordapp.com/attachments/1306469861584801833/1414207153673339052/image.png?ex=68d12f8c&is=68cfde0c&hm=905b8ece8a9905d88271685c00250ec36d9eb1a90da737b370ff74825b539853&" alt="Screenshot of a portfolio website" />
+                        <div class="card-body">
+                            <h3>Project Portfolio</h3>
+                            <p>A simple landing page using only HTML and CSS.</p>
+                            <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://cdn.discordapp.com/attachments/1306469861584801833/1414209102384463982/4effa03a-b2ee-4965-9f4d-17af539a9895-cover.png?ex=68d1315c&is=68cfdfdc&hm=339e7e7b140aa673097875a4eb6b33e59b3f9198c646f181e064c79c01175d1e&" alt="Screenshot of a restaurant website" />
+                        <div class="card-body">
+                            <h3>Project Restaurant</h3>
+                            <p>A responsive portfolio layout with flexbox.</p>
+                            <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://cdn.discordapp.com/attachments/1306469861584801833/1414209286929645699/cb915f158392327.png?ex=68d13188&is=68cfe008&hm=9e4212b837b71e5b575cbcdfecdeabe365502fda2d299b6b3eb1ec1b6692995f&" alt="Screenshot of a contact page" />
+                        <div class="card-body">
+                            <h3>Project Contact Page</h3>
+                            <p>A clean contact page with form styles.</p>
+                            <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="section" aria-labelledby="skills-title">
+            <div class="container">
+                <h2 id="skills-title">Skills</h2>
+                <ul class="chips" role="list">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>Responsive Design</li>
+                    <li>Git & GitHub</li>
+                    <li>Accessibility</li>
+                </ul>
+            </div>
+        </section>
+        <section id="contact" class="section" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title">Contact</h2>
+                <address>
+                    Email: <a href="mailto:kleejohn13@gmail.com">kleejohn13@gmail.com</a><br />
+                    Location: Butuan City, Philippines
+                </address>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        © <span id="year"></span> Klee John Quimado
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Dark mode functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.querySelector('.theme-icon');
+        const body = document.body;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Apply the saved theme on page load
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
+        }
+
+        // Theme toggle functionality
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                // Switch to light mode
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                // Switch to dark mode
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Editable content functionality
+        const editBtn = document.getElementById('edit-about');
+        const editableContent = document.getElementById('about-content');
+        const editIcon = document.querySelector('.edit-icon');
+        const editText = document.querySelector('.edit-text');
+        
+        // Create save indicator element
+        const saveIndicator = document.createElement('div');
+        saveIndicator.className = 'save-indicator';
+        saveIndicator.textContent = '💾 Content saved!';
+        document.body.appendChild(saveIndicator);
+
+        // Load saved content if available
+        const savedContent = localStorage.getItem('about-content');
+        if (savedContent) {
+            editableContent.innerHTML = savedContent;
+        }
+
+        // Edit button functionality
+        editBtn.addEventListener('click', () => {
+            const isEditing = editableContent.getAttribute('contenteditable') === 'true';
+            
+            if (isEditing) {
+                // Exit edit mode
+                editableContent.setAttribute('contenteditable', 'false');
+                editIcon.textContent = '✏️';
+                editText.textContent = 'Edit';
+                editBtn.style.background = 'var(--accent-color)';
+                
+                // Save content to localStorage
+                localStorage.setItem('about-content', editableContent.innerHTML);
+                showSaveIndicator();
+            } else {
+                // Enter edit mode
+                editableContent.setAttribute('contenteditable', 'true');
+                editIcon.textContent = '💾';
+                editText.textContent = 'Save';
+                editBtn.style.background = 'var(--accent-hover)';
+                
+                // Focus on the content
+                editableContent.focus();
+            }
+        });
+
+        // Auto-save when clicking outside the editable area
+        editableContent.addEventListener('blur', () => {
+            if (editableContent.getAttribute('contenteditable') === 'true') {
+                // Save content
+                localStorage.setItem('about-content', editableContent.innerHTML);
+                showSaveIndicator();
+            }
+        });
+
+        // Handle Enter key to create new paragraphs
+        editableContent.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                document.execCommand('insertHTML', false, '<br><br>');
+            }
+        });
+
+        // Show save indicator
+        function showSaveIndicator() {
+            saveIndicator.classList.add('show');
+            setTimeout(() => {
+                saveIndicator.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
